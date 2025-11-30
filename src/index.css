@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 200 30% 98%;
+    --foreground: 210 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 15%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 199 30% 94%;
+    --secondary-foreground: 199 89% 35%;
+
+    --muted: 200 20% 96%;
+    --muted-foreground: 210 15% 50%;
+
+    --accent: 199 89% 92%;
+    --accent-foreground: 199 89% 35%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 200 20% 90%;
+    --input: 200 20% 90%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Water theme colors */
+    --water-light: 199 89% 95%;
+    --water-medium: 199 89% 70%;
+    --water-dark: 199 89% 48%;
+    --water-gradient: linear-gradient(135deg, hsl(199, 89%, 60%) 0%, hsl(199, 89%, 48%) 100%);
+    --water-gradient-light: linear-gradient(180deg, hsl(199, 89%, 95%) 0%, hsl(200, 30%, 98%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(199 89% 48% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(199 89% 48% / 0.1), 0 2px 4px -2px hsl(199 89% 48% / 0.1);
+    --shadow-lg: 0 10px 15px -3px hsl(199 89% 48% / 0.1), 0 4px 6px -4px hsl(199 89% 48% / 0.1);
+    --shadow-water: 0 8px 30px -5px hsl(199 89% 48% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 8%;
+    --foreground: 200 20% 96%;
+
+    --card: 210 35% 12%;
+    --card-foreground: 200 20% 96%;
+
+    --popover: 210 35% 12%;
+    --popover-foreground: 200 20% 96%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 210 40% 8%;
+
+    --secondary: 210 30% 18%;
+    --secondary-foreground: 199 89% 70%;
+
+    --muted: 210 30% 15%;
+    --muted-foreground: 200 15% 60%;
+
+    --accent: 210 30% 20%;
+    --accent-foreground: 199 89% 70%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 210 30% 18%;
+    --input: 210 30% 18%;
+    --ring: 199 89% 55%;
+
+    --water-light: 210 30% 15%;
+    --water-medium: 199 70% 50%;
+    --water-dark: 199 89% 55%;
+    --water-gradient: linear-gradient(135deg, hsl(199, 70%, 50%) 0%, hsl(199, 89%, 55%) 100%);
+    --water-gradient-light: linear-gradient(180deg, hsl(210, 30%, 12%) 0%, hsl(210, 40%, 8%) 100%);
+
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -2px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -4px hsl(0 0% 0% / 0.3);
+    --shadow-water: 0 8px 30px -5px hsl(199 89% 55% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .water-card {
+    @apply bg-card rounded-2xl p-6;
+    box-shadow: var(--shadow-md);
+  }
+
+  .water-button {
+    @apply rounded-xl font-semibold transition-all duration-200 active:scale-95;
+  }
+
+  .water-button-primary {
+    background: var(--water-gradient);
+    @apply text-primary-foreground;
+    box-shadow: var(--shadow-water);
+  }
+
+  .water-button-primary:hover {
+    @apply opacity-90;
+  }
+
+  .water-button-secondary {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .water-button-secondary:hover {
+    @apply bg-accent;
+  }
+
+  .progress-ring-bg {
+    stroke: hsl(var(--water-light));
+  }
+
+  .progress-ring-fill {
+    stroke: hsl(var(--primary));
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s ease-in-out;
+  }
+
+  .gradient-bg {
+    background: var(--water-gradient-light);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+
+  .scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-water {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-water {
+  animation: pulse-water 2s ease-in-out infinite;
+}
