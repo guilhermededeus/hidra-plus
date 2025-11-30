@@ -127,7 +127,7 @@ Ele oferece:
 
 ### Clonar o Repositório
 ```bash
-git clone <URL-do-seu-repositorio>
+git clone https://github.com/guilhermededeus/hidra-plus
 cd hidra+
 ```
 
